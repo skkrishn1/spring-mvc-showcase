@@ -2,6 +2,7 @@ package org.springframework.samples.mvc.async;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class DeferredResultController {
 	}
 
 	@RequestMapping("/deferred-result/model-and-view")
-	public DeferredResult<ModelAndView> deferredResultWithView() {
+	public @ResponseBody DeferredResult<ModelAndView> deferredResultWithView() {
 		DeferredResult<ModelAndView> result = new DeferredResult<ModelAndView>();
 		this.mavQueue.add(result);
 		return result;

@@ -3,7 +3,6 @@ package org.springframework.samples.mvc.data;
 import static org.hamcrest.Matchers.startsWith;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -47,7 +46,7 @@ public class DataControllerTests extends AbstractContextControllerTests {
 
 	@Test
 	public void matrixVar() throws Exception {
-		this.mockMvc.perform(get("/data/matrixvars;foo=bar/simple")).andDo(print())
+		this.mockMvc.perform(get("/data/matrixvars;foo=bar/simple"))
 				.andExpect(content().string("Obtained matrix variable 'foo=bar' from path segment 'matrixvars'"));
 	}
 
